@@ -39,7 +39,7 @@ contract CritterBase is CritterAccessControl {
 
     uint256 public secondsPerBlock = 15;
 
-    Critter[] kitties;
+    Critter[] critters;
     mapping(uint256 => address) public critterIndexToOwner;
 
     mapping(address => uint256) ownershipTokenCount;
@@ -94,21 +94,21 @@ contract CritterBase is CritterAccessControl {
                 cooldownIndex: cooldownIndex,
                 generation: uint16(_generation)
             });
-        uint256 newKittenId = kitties.push(_critter) - 1;
+        uint256 newCritterId = critters.push(_critter) - 1;
 
-        require(newKittenId == uint256(uint32(newKittenId)));
+        require(newCritterId == uint256(uint32(newCritterId)));
 
         Birth(
             _owner,
-            newKittenId,
+            newCritterId,
             uint256(_critter.matronId),
             uint256(_critter.sireId),
             _critter.genes
         );
 
-        _transfer(0, _owner, newKittenId);
+        _transfer(0, _owner, newCritterId);
 
-        return newKittenId;
+        return newCritterId;
     }
 
     function setSecondsPerBlock(uint256 secs) external onlyCLevel {

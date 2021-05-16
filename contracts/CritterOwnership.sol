@@ -91,7 +91,7 @@ contract CritterOwnership is CritterBase, ERC721 {
     }
 
     function totalSupply() public view returns (uint256) {
-        return kitties.length - 1;
+        return critters.length - 1;
     }
 
     function ownerOf(uint256 _tokenId) external view returns (address owner) {
@@ -111,14 +111,14 @@ contract CritterOwnership is CritterBase, ERC721 {
             return new uint256[](0);
         } else {
             uint256[] memory result = new uint256[](tokenCount);
-            uint256 totalCats = totalSupply();
+            uint256 totalCritters = totalSupply();
             uint256 resultIndex = 0;
 
-            uint256 catId;
+            uint256 critterId;
 
-            for (catId = 1; catId <= totalCats; catId++) {
-                if (critterIndexToOwner[catId] == _owner) {
-                    result[resultIndex] = catId;
+            for (critterId = 1; critterId <= totalCritters; critterId++) {
+                if (critterIndexToOwner[critterId] == _owner) {
+                    result[resultIndex] = critterId;
                     resultIndex++;
                 }
             }
