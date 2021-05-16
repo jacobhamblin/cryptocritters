@@ -1,0 +1,8 @@
+- repo: https://github.com/pre-commit/mirrors-prettier
+  rev: "a99a3fbe79a9d346cabd02a5e167ad0edafe616b"
+  hooks:
+    - id: prettier
+      types: [solidity]
+      additional_dependencies:
+      - prettier@2.3.0
+      - 'prettier-plugin-solidity'
