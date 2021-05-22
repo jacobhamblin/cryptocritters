@@ -1,6 +1,8 @@
 pragma solidity ^0.4.11;
 
 import "./CritterAccessControl.sol";
+import "./SaleClockAuction.sol";
+import "./SiringClockAuction.sol";
 
 contract CritterBase is CritterAccessControl {
     event Birth(

@@ -1,6 +1,6 @@
 pragma solidity ^0.4.11;
 
-import "./Pausible.sol";
+import "./Pausable.sol";
 import "./ClockAuctionBase.sol";
 
 contract ClockAuction is Pausable, ClockAuctionBase {
