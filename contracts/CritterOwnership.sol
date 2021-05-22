@@ -1,4 +1,7 @@
+pragma solidity ^0.4.11;
+
 import "./tokens/nf-token.sol";
+import "./CritterBase.sol";
 
 contract CritterOwnership is CritterBase, ERC721 {
     string public constant name = "CryptoCritters";

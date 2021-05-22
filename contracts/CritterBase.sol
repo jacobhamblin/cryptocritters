@@ -1,3 +1,7 @@
+pragma solidity ^0.4.11;
+
+import "./CritterAccessControl.sol";
+
 contract CritterBase is CritterAccessControl {
     event Birth(
         address owner,
