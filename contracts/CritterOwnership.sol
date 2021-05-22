@@ -1,6 +1,6 @@
 pragma solidity ^0.4.11;
 
-import "./tokens/nf-token.sol";
+import "./ERC721.sol";
 import "./CritterBase.sol";
 
 contract CritterOwnership is CritterBase, ERC721 {
