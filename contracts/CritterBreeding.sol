@@ -1,3 +1,5 @@
+import "./CritterOwnership.sol";
+
 contract CritterBreeding is CritterOwnership {
     event Pregnant(
         address owner,
