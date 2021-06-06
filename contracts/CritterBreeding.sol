@@ -11,7 +11,7 @@ contract CritterBreeding is CritterOwnership {
         uint256 cooldownEndBlock
     );
     uint256 public autoBirthFee = 2 finney;
-    uint256 public pregnantKitties;
+    uint256 public pregnantCritters;
     GeneScienceInterface public geneScience;
 
     function setGeneScienceAddress(address _address) external onlyCEO {
@@ -146,7 +146,7 @@ contract CritterBreeding is CritterOwnership {
         delete sireAllowedToAddress[_matronId];
         delete sireAllowedToAddress[_sireId];
 
-        pregnantKitties++;
+        pregnantCritters++;
 
         Pregnant(
             critterIndexToOwner[_matronId],
@@ -218,7 +218,7 @@ contract CritterBreeding is CritterOwnership {
 
         delete matron.siringWithId;
 
-        pregnantKitties--;
+        pregnantCritters--;
 
         msg.sender.send(autoBirthFee);
 
