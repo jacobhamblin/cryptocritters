@@ -1,4 +1,5 @@
 import "./CritterOwnership.sol";
+import "./GeneScienceInterface.sol";
 
 contract CritterBreeding is CritterOwnership {
     event Pregnant(
