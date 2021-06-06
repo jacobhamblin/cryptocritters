@@ -1,3 +1,5 @@
+pragma solidity ^0.4.11;
+
 import "./CritterBreeding.sol";
 
 contract CritterAuction is CritterBreeding {

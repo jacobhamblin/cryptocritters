@@ -1,3 +1,5 @@
+pragma solidity ^0.4.11;
+
 contract GeneScienceInterface {
     function isGeneScience() public pure returns (bool);
 
