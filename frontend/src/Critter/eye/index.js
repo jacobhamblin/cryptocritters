@@ -44,16 +44,31 @@ const counts = {
   bug: 5,
   plant: 5,
   reptile: 7,
-}
+};
 
 const selection = {
-  aquatic: [aquaticOne, aquaticTwo, aquaticThree, aquaticFour, aquaticFive, aquaticSix],
+  aquatic: [
+    aquaticOne,
+    aquaticTwo,
+    aquaticThree,
+    aquaticFour,
+    aquaticFive,
+    aquaticSix,
+  ],
   beast: [beastOne, beastTwo, beastThree, beastFour, beastFive],
   bird: [birdOne, birdTwo, birdThree, birdFour, birdFive],
   bug: [bugOne, bugTwo, bugThree, bugFour, bugFive],
   plant: [plantOne, plantTwo, plantThree, plantFour, plantFive],
-  reptile: [reptileOne, reptileTwo, reptileThree, reptileFour, reptileFive, reptileSix, reptileSeven],
-}
+  reptile: [
+    reptileOne,
+    reptileTwo,
+    reptileThree,
+    reptileFour,
+    reptileFive,
+    reptileSix,
+    reptileSeven,
+  ],
+};
 
 const classAssignment = {
   0: "aquatic",
@@ -72,13 +87,19 @@ const classAssignment = {
 // first digit determines class
 // second digit determines asset within class
 
-const Eye = ({data}) => {
+const Eye = ({ data }) => {
   const group = selection[classAssignment[Math.floor(data / 10)]];
   const individual = data % 10;
-  const src = group[individual - 1 % group.length]
-  return (
-    <img src={src} />
-  );
+  const src = group[individual % group.length];
+  console.log("data");
+  console.log(data);
+  console.log("group");
+  console.log(group);
+  console.log("individual");
+  console.log(individual);
+  console.log("src");
+  console.log(src);
+  return <img src={src} />;
 };
 
 export default Eye;

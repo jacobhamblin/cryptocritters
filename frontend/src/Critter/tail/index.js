@@ -53,16 +53,48 @@ const counts = {
   bug: 7,
   plant: 7,
   reptile: 7,
-}
+};
 
 const selection = {
-  aquatic: [aquaticOne, aquaticTwo, aquaticThree, aquaticFour, aquaticFive, aquaticSix, aquaticSeven],
-  beast: [beastOne, beastTwo, beastThree, beastFour, beastFive, beastSix, beastSeven],
+  aquatic: [
+    aquaticOne,
+    aquaticTwo,
+    aquaticThree,
+    aquaticFour,
+    aquaticFive,
+    aquaticSix,
+    aquaticSeven,
+  ],
+  beast: [
+    beastOne,
+    beastTwo,
+    beastThree,
+    beastFour,
+    beastFive,
+    beastSix,
+    beastSeven,
+  ],
   bird: [birdOne, birdTwo, birdThree, birdFour, birdFive, birdSix, birdSeven],
   bug: [bugOne, bugTwo, bugThree, bugFour, bugFive, bugSix, bugSeven],
-  plant: [plantOne, plantTwo, plantThree, plantFour, plantFive, plantSix, plantSeven],
-  reptile: [reptileOne, reptileTwo, reptileThree, reptileFour, reptileFive, reptileSix, reptileSeven],
-}
+  plant: [
+    plantOne,
+    plantTwo,
+    plantThree,
+    plantFour,
+    plantFive,
+    plantSix,
+    plantSeven,
+  ],
+  reptile: [
+    reptileOne,
+    reptileTwo,
+    reptileThree,
+    reptileFour,
+    reptileFive,
+    reptileSix,
+    reptileSeven,
+  ],
+};
 
 const classAssignment = {
   0: "aquatic",
@@ -81,13 +113,19 @@ const classAssignment = {
 // first digit determines class
 // second digit determines asset within class
 
-const Tail = ({data}) => {
+const Tail = ({ data }) => {
   const group = selection[classAssignment[Math.floor(data / 10)]];
   const individual = data % 10;
-  const src = group[individual - 1 % group.length]
-  return (
-    <img src={src} />
-  );
+  const src = group[individual % group.length];
+  console.log("data");
+  console.log(data);
+  console.log("group");
+  console.log(group);
+  console.log("individual");
+  console.log(individual);
+  console.log("src");
+  console.log(src);
+  return <img src={src} />;
 };
 
 export default Tail;
