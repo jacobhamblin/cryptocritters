@@ -34,6 +34,8 @@ import reptileThree from "../../assets/body/reptile/3.png";
 import reptileFour from "../../assets/body/reptile/4.png";
 import reptileFive from "../../assets/body/reptile/5.png";
 
+import "./style.css";
+
 const counts = {
   aquatic: 5,
   beast: 5,
@@ -73,15 +75,7 @@ const Body = ({ data }) => {
   const group = selection[classAssignment[Math.floor(data / 10)]];
   const individual = data % 10;
   const src = group[individual % group.length];
-  console.log("data");
-  console.log(data);
-  console.log("group");
-  console.log(group);
-  console.log("individual");
-  console.log(individual);
-  console.log("src");
-  console.log(src);
-  return <img src={src} />;
+  return <img src={src} className="Body" />;
 };
 
 export default Body;
