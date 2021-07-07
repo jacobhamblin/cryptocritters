@@ -1,7 +1,7 @@
 .Eye {
   position: absolute;
   z-index: 12;
-  top: 220px;
-  transform: translateY(-50%);
-  left: 40px;
+  top: 190px;
+  transform: translate(-50%);
+  left: 130px;
 }

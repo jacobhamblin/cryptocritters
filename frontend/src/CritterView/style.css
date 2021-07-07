@@ -1,0 +1,10 @@
+.CritterView {
+  display: flex;
+  text-align: center;
+  width: 576px;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.CritterView h1 {
+}
