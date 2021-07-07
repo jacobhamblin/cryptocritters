@@ -1,3 +1,7 @@
 .Mouth {
   position: absolute;
+  z-index: 12;
+  top: 280px;
+  left: 120px;
+  transform: translateY(-50%);
 }

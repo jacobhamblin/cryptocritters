@@ -1,2 +1,4 @@
 .Body {
+  z-index: 10;
+  position: relative;
 }

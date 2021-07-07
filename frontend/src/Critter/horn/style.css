@@ -1,3 +1,7 @@
 .Horn {
   position: absolute;
+  z-index: 12;
+  left: 50px;
+  top: 40px;
+  transform: translateY(-50%);
 }

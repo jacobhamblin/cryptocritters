@@ -1,6 +1,7 @@
 .Eye {
   position: absolute;
-  top: 160px;
+  z-index: 12;
+  top: 220px;
   transform: translateY(-50%);
-  left: 20px;
+  left: 40px;
 }
