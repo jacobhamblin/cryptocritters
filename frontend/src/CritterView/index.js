@@ -2,11 +2,14 @@ import Critter from "../Critter";
 
 import "./style.css";
 
-const CritterView = ({ critterData, critterID }) => {
+const CritterView = ({ data = {}, critterID }) => {
   let placeholderData = Math.floor(Math.random() * 100000000000000);
-  const { dna } = critterData;
+  const { dna } = data;
   console.log(dna);
-  console.log(critterData);
+  console.log(data);
+
+  const dnaData = dna;
+  // const dnaData = placeholderData;
   const segments = {
     back: 0,
     body: 0,
@@ -17,8 +20,8 @@ const CritterView = ({ critterData, critterID }) => {
     tail: 0,
   };
   Object.keys(segments).forEach((segment) => {
-    segments[segment] = placeholderData % 100;
-    placeholderData = Math.floor(placeholderData / 100);
+    segments[segment] = dnaData % 100;
+    dnaData = Math.floor(dnaData / 100);
   });
 
   console.log("segments");

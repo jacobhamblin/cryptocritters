@@ -17,7 +17,6 @@ function App() {
         <Controls setCritters={setCritters} setContract={setContract} />
       </header>
       <Critters critters={critters} contract={contract} />
-      <CritterView />
     </div>
   );
 }
