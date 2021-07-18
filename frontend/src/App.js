@@ -2,11 +2,11 @@ import { useState } from "react";
 import CritterView from "./CritterView";
 import Controls from "./Controls";
 import Critters from "./Critters";
+import ABI from "./abi/CritterOwnershipUpdated.json";
 import "./App.css";
 import "nes.css/css/nes.min.css";
 
 const CONTRACT_ADDRESS = "";
-const contractABI = "";
 
 function App() {
   const [critters, setCritters] = useState([]);

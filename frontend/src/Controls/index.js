@@ -1,11 +1,11 @@
 import { useState } from "react";
+import classNames from "classnames";
 import Web3 from "web3";
 import useInterval from "../utils/useInterval";
-import classNames from "classnames";
+import contractABI from "../abi/CritterOwnershipUpdated.json";
 import "./style.css";
 
 const CONTRACT_ADDRESS = "";
-const contractABI = "";
 
 const Controls = ({ setCritters, setContract: setContractParent }) => {
   const [accountID, setAccountID] = useState("");
