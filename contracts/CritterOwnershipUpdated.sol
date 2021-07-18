@@ -4,7 +4,7 @@ import "./CritterHelper.sol";
 import "./ERC721Updated.sol";
 import "./SafeMath.sol";
 
-contract CritterOwnership is CritterHelper, ERC721 {
+contract CritterOwnershipUpdated is CritterHelper, ERC721 {
     using SafeMath for uint256;
 
     mapping(uint256 => address) CritterApprovals;
@@ -14,7 +14,7 @@ contract CritterOwnership is CritterHelper, ERC721 {
     }
 
     function ownerOf(uint256 _tokenId) external view returns (address) {
-        return CritterToOwner[_tokenId];
+        return critterToOwner[_tokenId];
     }
 
     function _transfer(
@@ -24,7 +24,7 @@ contract CritterOwnership is CritterHelper, ERC721 {
     ) private {
         ownerCritterCount[_to] = ownerCritterCount[_to].add(1);
         ownerCritterCount[msg.sender] = ownerCritterCount[msg.sender].sub(1);
-        CritterToOwner[_tokenId] = _to;
+        critterToOwner[_tokenId] = _to;
         emit Transfer(_from, _to, _tokenId);
     }
 
@@ -34,7 +34,7 @@ contract CritterOwnership is CritterHelper, ERC721 {
         uint256 _tokenId
     ) external payable {
         require(
-            CritterToOwner[_tokenId] == msg.sender ||
+            critterToOwner[_tokenId] == msg.sender ||
                 CritterApprovals[_tokenId] == msg.sender
         );
         _transfer(_from, _to, _tokenId);
