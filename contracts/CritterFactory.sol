@@ -17,10 +17,7 @@ contract CritterFactory is Ownable {
     struct Critter {
         string name;
         uint256 dna;
-        uint32 level;
         uint32 readyTime;
-        uint16 winCount;
-        uint16 lossCount;
     }
 
     Critter[] public critters;
