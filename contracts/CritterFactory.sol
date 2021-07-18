@@ -27,9 +27,7 @@ contract CritterFactory is Ownable {
 
     function _createCritter(string memory _name, uint256 _dna) internal {
         uint256 id =
-            critters.push(
-                Critter(_name, _dna, 1, uint32(now + cooldownTime), 0, 0)
-            ) - 1;
+            critters.push(Critter(_name, _dna, uint32(now + cooldownTime))) - 1;
         critterToOwner[id] = msg.sender;
         ownerCritterCount[msg.sender] = ownerCritterCount[msg.sender].add(1);
         emit NewCritter(id, _name, _dna);

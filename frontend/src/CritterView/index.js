@@ -8,8 +8,8 @@ const CritterView = ({ data = {}, critterID }) => {
   console.log(dna);
   console.log(data);
 
-  const dnaData = dna;
-  // const dnaData = placeholderData;
+  // let dnaData = dna;
+  let dnaData = placeholderData;
   const segments = {
     back: 0,
     body: 0,
@@ -29,7 +29,6 @@ const CritterView = ({ data = {}, critterID }) => {
 
   return (
     <div className="CritterView">
-      <h2>Critter</h2>
       <Critter
         back={segments["back"]}
         body={segments["body"]}

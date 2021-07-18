@@ -24,6 +24,10 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+require("dotenv").config();
+const HDWalletProvider = require("@truffle/hdwallet-provider");
+const MNEMONIC = process.env.MNEMONIC;
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -47,12 +51,21 @@ module.exports = {
       network_id: "*", // Match any network id
     },
     rinkeby: {
-      host: "127.0.0.1", // Connect to geth on the specified
-      port: 8545,
-      from: "0xA39972a88f6a813b1c0BBeA2419c8F2f6c73Efaa", // default address to use for any transaction Truffle makes during migrations
+      // Special function to setup the provider
+      provider: () =>
+        new HDWalletProvider(
+          MNEMONIC,
+          "https://rinkeby.infura.io/v3/55a04c54eef443b09b648831a53a67f8"
+        ),
       network_id: 4,
-      gas: 4000000, // Gas limit used for deploys
     },
+    // rinkeby: {
+    // host: "127.0.0.1", // Connect to geth on the specified
+    // port: 8545,
+    // from: "0xA39972a88f6a813b1c0BBeA2419c8F2f6c73Efaa", // default address to use for any transaction Truffle makes during migrations
+    // network_id: 4,
+    // gas: 4000000, // Gas limit used for deploys
+    // },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal

@@ -5,7 +5,7 @@ import useInterval from "../utils/useInterval";
 import contractABI from "../abi/CritterOwnershipUpdated.json";
 import "./style.css";
 
-const CONTRACT_ADDRESS = "";
+const CONTRACT_ADDRESS = "0x51EF4dC2D7bBdb69031563B52cE26Ee28Bff84E7";
 
 const Controls = ({ setCritters, setContract: setContractParent }) => {
   const [accountID, setAccountID] = useState("");
