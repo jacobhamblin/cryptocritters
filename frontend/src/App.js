@@ -3,6 +3,7 @@ import CritterView from "./CritterView";
 import Controls from "./Controls";
 import Critters from "./Critters";
 import "./App.css";
+import "nes.css/css/nes.min.css";
 
 const CONTRACT_ADDRESS = "";
 const contractABI = "";

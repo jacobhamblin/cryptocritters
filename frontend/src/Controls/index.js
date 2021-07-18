@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Web3 from "web3";
 import useInterval from "../utils/useInterval";
+import classNames from "classnames";
+import "./style.css";
 
 const CONTRACT_ADDRESS = "";
 const contractABI = "";
@@ -57,18 +59,33 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
 
   const accountText = accountID ? accountID : "Connect Metamask";
   return (
-    <div>
-      <div className="transactionStatus">{status}</div>
-      <button
-        className="generateCritter"
-        disabled={!accountID}
-        onClick={generateCritter}
-      >
-        Get New Critter
-      </button>
-      <button className="accountButton" onClick={handleAccountClick}>
-        {accountText}
-      </button>
+    <div className="Controls">
+      <div className="transactionStatus nes-text">{status}</div>
+      <div className="buttons">
+        <button
+          className={classNames({
+            generateCritter: true,
+            "nes-btn": true,
+            "is-disabled": !accountID,
+            "is-primary": accountID,
+          })}
+          disabled={!accountID}
+          onClick={generateCritter}
+        >
+          Get New Critter
+        </button>
+        <button
+          className={classNames({
+            accountButton: true,
+            "nes-btn": true,
+            "is-primary": !contract,
+            "is-success": !!accountID,
+          })}
+          onClick={handleAccountClick}
+        >
+          {accountText}
+        </button>
+      </div>
     </div>
   );
 };
