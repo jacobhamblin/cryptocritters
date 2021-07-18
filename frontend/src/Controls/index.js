@@ -17,9 +17,14 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     if (!window.ethereum) {
       setStatus("Please install metamask extension and reload page!");
     } else {
-      setStatus("Metamask present, ready for blockchain transactions!");
+      setStatus("Connect metamask to get started!");
     }
   }, []);
+
+  useEffect(() => {
+    if (!web3 || !contract) return;
+    setCritters(getCrittersByOwner(web3.eth.accounts[0]));
+  }, [contract, web3]);
 
   const setContract = (contract) => {
     setLocalContract(contract);
@@ -28,15 +33,6 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
 
   const getCrittersByOwner = (accountID) =>
     contract.methods.getCrittersByOwner(accountID).call();
-
-  useInterval(() => {
-    if (!web3) return;
-    console.log(web3.eth);
-    if (web3.eth.accounts[0] !== accountID) {
-      setAccountID(web3.eth.accounts[0]);
-      setCritters(getCrittersByOwner(web3.eth.accounts[0]));
-    }
-  }, 100);
 
   const generateCritter = () => {
     setStatus("Creating a new Critter. This may take a bit.");
@@ -52,12 +48,17 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
       });
   };
 
-  const handleAccountClick = () => {
+  const handleAccountClick = async () => {
     if (accountID) {
       console.log("connected");
       return;
     }
-    window.ethereum.request({ method: "eth_requestAccounts" });
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    setAccountID(accounts[0]);
+    console.log(accounts);
+    setStatus("");
 
     const web3 = new Web3(Web3.currentProvider);
     setWeb3(web3);
@@ -78,7 +79,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
           className={classNames({
             generateCritter: true,
             "nes-btn": true,
-            "is-disabled": !accountID,
+            "is-disabled": !accountID || !contract,
             "is-primary": accountID,
           })}
           disabled={!accountID}
@@ -90,8 +91,9 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
           className={classNames({
             accountButton: true,
             "nes-btn": true,
-            "is-primary": !contract,
+            "is-primary": !accountID && !!window.ethereum,
             "is-success": !!accountID,
+            "is-disabled": !window.ethereum,
           })}
           onClick={handleAccountClick}
         >
