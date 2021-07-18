@@ -37,10 +37,22 @@ module.exports = {
 
   networks: {
     // development: {
-    //   host: "127.0.0.1",
-    //   port: 7545,
-    //   network_id: "5777"
-    // }
+    // host: "127.0.0.1",
+    // port: 8545,
+    // network_id: "*",
+    // },
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*", // Match any network id
+    },
+    rinkeby: {
+      host: "127.0.0.1", // Connect to geth on the specified
+      port: 8545,
+      from: "0xA39972a88f6a813b1c0BBeA2419c8F2f6c73Efaa", // default address to use for any transaction Truffle makes during migrations
+      network_id: 4,
+      gas: 4000000, // Gas limit used for deploys
+    },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal
@@ -97,7 +109,7 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
+    },
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled: false to enabled: true
@@ -107,6 +119,6 @@ module.exports = {
   // $ truffle migrate --reset --compile-all
 
   db: {
-    enabled: false
-  }
+    enabled: false,
+  },
 };
