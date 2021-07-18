@@ -1,7 +1,7 @@
 .Controls {
   display: flex;
   width: 100%;
-  flex-flow: row wrap;
+  flex-flow: row no-wrap;
   justify-content: space-between;
   font-size: 12px;
 }
@@ -9,6 +9,10 @@
 .Controls .transactionStatus {
   min-width: 1px;
   line-height: 12px;
+  font-size: 12px;
+  color: #000;
+  text-align: justify;
+  max-width: 400px;
 }
 
 .Controls .buttons {
