@@ -2,8 +2,11 @@ import Critter from "../Critter";
 
 import "./style.css";
 
-const CritterView = () => {
+const CritterView = ({ critterData, critterID }) => {
   let placeholderData = Math.floor(Math.random() * 100000000000000);
+  const { dna } = critterData;
+  console.log(dna);
+  console.log(critterData);
   const segments = {
     back: 0,
     body: 0,

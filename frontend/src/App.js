@@ -16,7 +16,7 @@ function App() {
       <header className="App-header">
         <Controls setCritters={setCritters} setContract={setContract} />
       </header>
-      <Critters critters={critters} CryptoCritters={contract} />
+      <Critters critters={critters} contract={contract} />
       <CritterView />
     </div>
   );

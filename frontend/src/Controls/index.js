@@ -1,5 +1,5 @@
 import { useState } from "react";
-import web3 from "web3";
+import Web3 from "web3";
 import { useInterval } from "../utils";
 
 const CONTRACT_ADDRESS = "";
@@ -8,13 +8,16 @@ const contractABI = "";
 const Controls = ({ setCritters, setContract }) => {
   const [accountID, setAccountID] = useState("");
   const [status, setStatus] = useState("");
-  const contract = new web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
+  const [web3, setWeb3] = useState(null);
+  const contract = new Web3.eth.Contract(contractABI, CONTRACT_ADDRESS);
   setContract(contract);
 
   const getCrittersByOwner = (accountID) =>
     contract.methods.getCrittersByOwner(accountID).call();
 
   useInterval(() => {
+    if (!web3) return;
+    console.log(web3.eth);
     if (web3.eth.accounts[0] !== accountID) {
       setAccountID(web3.eth.accounts[0]);
       setCritters(getCrittersByOwner(web3.eth.accounts[0]));
@@ -41,10 +44,8 @@ const Controls = ({ setCritters, setContract }) => {
       return;
     }
 
-    console.log("accounts");
-    console.log(web3.eth.accounts);
-    if (web3.eth.accounts[0]) {
-    }
+    const web3 = new Web3(Web3.currentProvider);
+    setWeb3(web3);
   };
 
   const accountText = accountID ? accountID : "Connect Metamask";
