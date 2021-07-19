@@ -59,8 +59,9 @@
 }
 
 body {
-  background-color: #282c34;
+  background-color: #fff;
   font-size: 16px;
+  font-family: "Press Start 2P";
   color: #000;
   font-smooth: never;
   -webkit-font-smoothing: none;
