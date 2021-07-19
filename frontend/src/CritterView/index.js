@@ -3,10 +3,10 @@ import Critter from "../Critter";
 
 import "./style.css";
 
-const CritterView = ({ data = {}, critterID, real = true, small = true }) => {
+const CritterView = ({ data = {}, real = true, small = true }) => {
   let placeholderData = Math.floor(Math.random() * 100000000000000);
   const { dna } = data;
-  console.log("dna", dna);
+  if (real) console.log("dna", dna);
 
   let dnaData = real ? dna : placeholderData;
   const segments = {

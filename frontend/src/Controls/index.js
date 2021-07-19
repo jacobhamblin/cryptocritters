@@ -12,6 +12,18 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
   const [web3, setWeb3] = useState(null);
   const [contract, setLocalContract] = useState(null);
 
+  const getCritterDetails = async (critterID) =>
+    await contract.methods.critters(critterID).call({}, (err, res) => res);
+
+  const refreshCritters = async () => {
+    const critterIDs = await getCrittersByOwner(accountID);
+    console.log("critterIDS", critterIDs);
+    const critters = await Promise.all(
+      critterIDs.map((critterID) => getCritterDetails(critterID))
+    );
+    setCritters(critters);
+  };
+
   useEffect(() => {
     if (!window.ethereum) {
       setStatus("Please install metamask extension and reload page!");
@@ -26,14 +38,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
   useEffect(() => {
     if (!web3 || !contract || !accountID) return;
 
-    async function fetchCritters() {
-      const critters = await getCrittersByOwner(accountID);
-      console.log("critterss after fetch");
-      console.log(critters);
-      setCritters(critters);
-    }
-
-    fetchCritters();
+    refreshCritters();
   }, [contract, web3, accountID]);
 
   const setContract = (contract) => {
