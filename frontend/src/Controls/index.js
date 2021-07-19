@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
+import useInterval from "../utils/useInterval";
 import Web3 from "web3";
 import contractABIJSON from "../abi/CritterOwnershipUpdated.json";
 import "./style.css";
@@ -40,6 +41,20 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
 
     refreshCritters();
   }, [contract, web3, accountID]);
+
+  useInterval(async () => {
+    if (!window.ethereum || !accountID) return;
+
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    if (accounts[0] !== accountID) {
+      console.log("new account");
+      console.log(accountID);
+      console.log(accounts[0]);
+      setAccountID(accounts[0]);
+    }
+  }, 300);
 
   const setContract = (contract) => {
     setLocalContract(contract);
