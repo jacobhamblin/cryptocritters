@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/cryptocritters/static/css/main.4294596f.chunk.css",
-    "main.js": "/cryptocritters/static/js/main.c9d3b48e.chunk.js",
-    "main.js.map": "/cryptocritters/static/js/main.c9d3b48e.chunk.js.map",
+    "main.css": "/cryptocritters/static/css/main.5ed91ce7.chunk.css",
+    "main.js": "/cryptocritters/static/js/main.020db3b5.chunk.js",
+    "main.js.map": "/cryptocritters/static/js/main.020db3b5.chunk.js.map",
     "runtime-main.js": "/cryptocritters/static/js/runtime-main.865b93f6.js",
     "runtime-main.js.map": "/cryptocritters/static/js/runtime-main.865b93f6.js.map",
     "static/css/2.71b2d8c5.chunk.css": "/cryptocritters/static/css/2.71b2d8c5.chunk.css",
-    "static/js/2.4ac02672.chunk.js": "/cryptocritters/static/js/2.4ac02672.chunk.js",
-    "static/js/2.4ac02672.chunk.js.map": "/cryptocritters/static/js/2.4ac02672.chunk.js.map",
+    "static/js/2.a5f8d459.chunk.js": "/cryptocritters/static/js/2.a5f8d459.chunk.js",
+    "static/js/2.a5f8d459.chunk.js.map": "/cryptocritters/static/js/2.a5f8d459.chunk.js.map",
     "static/js/3.69bbe1c3.chunk.js": "/cryptocritters/static/js/3.69bbe1c3.chunk.js",
     "static/js/3.69bbe1c3.chunk.js.map": "/cryptocritters/static/js/3.69bbe1c3.chunk.js.map",
     "index.html": "/cryptocritters/index.html",
     "static/css/2.71b2d8c5.chunk.css.map": "/cryptocritters/static/css/2.71b2d8c5.chunk.css.map",
-    "static/css/main.4294596f.chunk.css.map": "/cryptocritters/static/css/main.4294596f.chunk.css.map",
-    "static/js/2.4ac02672.chunk.js.LICENSE.txt": "/cryptocritters/static/js/2.4ac02672.chunk.js.LICENSE.txt",
+    "static/css/main.5ed91ce7.chunk.css.map": "/cryptocritters/static/css/main.5ed91ce7.chunk.css.map",
+    "static/js/2.a5f8d459.chunk.js.LICENSE.txt": "/cryptocritters/static/js/2.a5f8d459.chunk.js.LICENSE.txt",
     "static/media/1.0a64b62e.png": "/cryptocritters/static/media/1.0a64b62e.png",
     "static/media/1.0b4517b5.png": "/cryptocritters/static/media/1.0b4517b5.png",
     "static/media/1.17079a6d.png": "/cryptocritters/static/media/1.17079a6d.png",
@@ -179,8 +179,8 @@
   "entrypoints": [
     "static/js/runtime-main.865b93f6.js",
     "static/css/2.71b2d8c5.chunk.css",
-    "static/js/2.4ac02672.chunk.js",
-    "static/css/main.4294596f.chunk.css",
-    "static/js/main.c9d3b48e.chunk.js"
+    "static/js/2.a5f8d459.chunk.js",
+    "static/css/main.5ed91ce7.chunk.css",
+    "static/js/main.020db3b5.chunk.js"
   ]
 }
