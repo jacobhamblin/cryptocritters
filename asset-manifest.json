@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/cryptocritters/static/css/main.4294596f.chunk.css",
-    "main.js": "/cryptocritters/static/js/main.abb0605b.chunk.js",
-    "main.js.map": "/cryptocritters/static/js/main.abb0605b.chunk.js.map",
+    "main.js": "/cryptocritters/static/js/main.c9d3b48e.chunk.js",
+    "main.js.map": "/cryptocritters/static/js/main.c9d3b48e.chunk.js.map",
     "runtime-main.js": "/cryptocritters/static/js/runtime-main.865b93f6.js",
     "runtime-main.js.map": "/cryptocritters/static/js/runtime-main.865b93f6.js.map",
     "static/css/2.71b2d8c5.chunk.css": "/cryptocritters/static/css/2.71b2d8c5.chunk.css",
@@ -181,6 +181,6 @@
     "static/css/2.71b2d8c5.chunk.css",
     "static/js/2.4ac02672.chunk.js",
     "static/css/main.4294596f.chunk.css",
-    "static/js/main.abb0605b.chunk.js"
+    "static/js/main.c9d3b48e.chunk.js"
   ]
 }
