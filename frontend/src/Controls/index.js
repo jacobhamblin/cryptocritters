@@ -18,7 +18,6 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
 
   const refreshCritters = async () => {
     const critterIDs = await getCrittersByOwner(accountID);
-    console.log("critterIDS", critterIDs);
     const critters = await Promise.all(
       critterIDs.map((critterID) => getCritterDetails(critterID))
     );
@@ -49,9 +48,6 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
       method: "eth_requestAccounts",
     });
     if (accounts[0] !== accountID) {
-      console.log("new account");
-      console.log(accountID);
-      console.log(accounts[0]);
       setAccountID(accounts[0]);
     }
   }, 300);
@@ -71,8 +67,8 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
       .createRandomCritter(name)
       .send({ from: accountID })
       .on("receipt", (receipt) => {
-        console.log("receipt", receipt);
         setStatus(`Successfully created a Critter!`);
+        refreshCritters();
       });
   };
 
