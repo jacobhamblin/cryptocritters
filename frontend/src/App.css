@@ -95,6 +95,11 @@ body {
   color: white;
 }
 
+.App-header h1 {
+  font-size: 36px;
+  color: #eee;
+}
+
 .controls-header {
   display: flex;
   flex-direction: column;
