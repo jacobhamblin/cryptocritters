@@ -15,7 +15,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
   useEffect(() => {
     if (!window.ethereum) {
       setStatus("Please install metamask extension and reload page!");
-    } else {
+    } else if (!accountID) {
       setStatus("Connect metamask to get started!");
     }
   }, []);
@@ -27,7 +27,10 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     if (!web3 || !contract || !accountID) return;
 
     async function fetchCritters() {
-      setCritters(await getCrittersByOwner(accountID));
+      const critters = await getCrittersByOwner(accountID);
+      console.log("critterss after fetch");
+      console.log(critters);
+      setCritters(critters);
     }
 
     fetchCritters();
@@ -39,7 +42,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
   };
 
   const generateCritter = () => {
-    setStatus("Creating a new Critter. This may take a bit.");
+    setStatus("Confirm metamask transaction to create Critter.");
     const name = Math.random()
       .toString(36)
       .replace(/[^a-z]+/g, "")
@@ -48,23 +51,19 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
       .createRandomCritter(name)
       .send({ from: accountID })
       .on("receipt", (receipt) => {
+        console.log("receipt", receipt);
         setStatus(`Successfully created a Critter!`);
       });
   };
 
   const handleAccountClick = async () => {
-    if (accountID) {
-      console.log("connected");
-      return;
-    }
+    if (accountID) return;
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     setAccountID(accounts[0]);
-    console.log(accounts);
     setStatus("");
 
-    // const web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/55a04c54eef443b09b648831a53a67f8'));
     const web3 = new Web3(window.ethereum);
     setWeb3(web3);
 

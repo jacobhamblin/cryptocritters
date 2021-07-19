@@ -7,14 +7,17 @@ const Critters = ({ contract, critters = [] }) => {
     contract.methods.critters(critterID).call();
   };
 
-  console.log("critters");
-  console.log(critters);
-  console.log("\n");
   const makeCritters = () =>
-    critters.map((critterID) => {
-      const critterData = getCritterDetails(critterID);
-      return <CritterView data={critterData} critterID={critterID} />;
-    });
+    critters
+      .map((critterID) => {
+        const critterData = getCritterDetails(critterID);
+        return <CritterView data={critterData} critterID={critterID} />;
+      })
+      .concat([
+        <CritterView real={false} />,
+        <CritterView real={false} />,
+        <CritterView real={false} />,
+      ]);
 
   return <div className="critters">{makeCritters()}</div>;
 };

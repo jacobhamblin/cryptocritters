@@ -1,15 +1,14 @@
+import classNames from "classnames";
 import Critter from "../Critter";
 
 import "./style.css";
 
-const CritterView = ({ data = {}, critterID }) => {
+const CritterView = ({ data = {}, critterID, real = true, small = true }) => {
   let placeholderData = Math.floor(Math.random() * 100000000000000);
   const { dna } = data;
-  console.log(dna);
-  console.log(data);
+  console.log("dna", dna);
 
-  // let dnaData = dna;
-  let dnaData = placeholderData;
+  let dnaData = real ? dna : placeholderData;
   const segments = {
     back: 0,
     body: 0,
@@ -24,11 +23,13 @@ const CritterView = ({ data = {}, critterID }) => {
     dnaData = Math.floor(dnaData / 100);
   });
 
-  console.log("segments");
-  console.log(segments);
-
   return (
-    <div className="CritterView">
+    <div
+      className={classNames({
+        CritterView: true,
+        small,
+      })}
+    >
       <Critter
         back={segments["back"]}
         body={segments["body"]}
