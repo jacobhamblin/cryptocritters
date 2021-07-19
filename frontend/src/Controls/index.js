@@ -5,7 +5,7 @@ import Web3 from "web3";
 import contractABIJSON from "../abi/CritterOwnershipUpdated.json";
 import "./style.css";
 
-const CONTRACT_ADDRESS = "0x51EF4dC2D7bBdb69031563B52cE26Ee28Bff84E7";
+const CONTRACT_ADDRESS = "0xeF0e9f47cfce8FA322AbA62BA9A2931a19611f68";
 
 const Controls = ({ setCritters, setContract: setContractParent }) => {
   const [accountID, setAccountID] = useState("");
