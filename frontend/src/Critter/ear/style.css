@@ -1,7 +1,7 @@
 .Ear {
   position: absolute;
   z-index: 12;
-  top: 220px;
+  top: 170px;
   right: 140px;
   transform: translateY(-50%);
 }
