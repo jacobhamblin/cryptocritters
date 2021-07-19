@@ -43,7 +43,6 @@ contract CritterFactory is Ownable {
     }
 
     function createRandomCritter(string memory _name) public {
-        require(ownerCritterCount[msg.sender] == 0);
         uint256 randDna = _generateRandomDna(_name);
         randDna = randDna - (randDna % 100);
         _createCritter(_name, randDna);

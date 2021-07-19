@@ -3,15 +3,9 @@ import "./style.css";
 
 const Critters = ({ contract, critters = [] }) => {
   const makeCritters = () => {
-    return critters
-      .map((critterData) => {
-        return <CritterView data={critterData} />;
-      })
-      .concat([
-        <CritterView real={false} />,
-        <CritterView real={false} />,
-        <CritterView real={false} />,
-      ]);
+    return critters.map((critterData) => {
+      return <CritterView data={critterData} />;
+    });
   };
 
   return <div className="critters">{makeCritters()}</div>;
