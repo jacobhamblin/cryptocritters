@@ -8,7 +8,7 @@ const CritterView = ({ data = {}, real = true, small = true }) => {
   const { dna } = data;
   if (real) console.log("dna", dna);
 
-  let dnaData = real ? dna : placeholderData;
+  let dnaData = real ? Math.floor(dna / 100) : placeholderData;
   const segments = {
     back: 0,
     body: 0,
@@ -22,6 +22,7 @@ const CritterView = ({ data = {}, real = true, small = true }) => {
     segments[segment] = dnaData % 100;
     dnaData = Math.floor(dnaData / 100);
   });
+  console.log("segments", segments);
 
   return (
     <div

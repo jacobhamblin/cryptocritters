@@ -52,7 +52,7 @@ import reptileSeven from "../../assets/back/reptile/7.png";
 import "./style.css";
 
 const counts = {
-  aquatic: 14,
+  aquatic: 9,
   beast: 8,
   bird: 7,
   bug: 7,
@@ -125,6 +125,8 @@ const Back = ({ data }) => {
   const group = selection[classAssignment[Math.floor(data / 10)]];
   const individual = data % 10;
   const src = group[individual % group.length];
+  console.log("horn data", data, "group", group, "individual", individual);
+  console.log(individual % group.length);
   return <img src={src} className="Back" />;
 };
 
