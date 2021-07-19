@@ -79,6 +79,16 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     setContract(contract);
   };
 
+  const refreshButton = !!accountID && (
+    <button
+      onClick={refreshCritters}
+      className={classNames({
+        "nes-btn": true,
+      })}
+    >
+      refresh
+    </button>
+  );
   const newCritterButtonDisabled = !accountID || !contract;
 
   const accountText = accountID
@@ -88,6 +98,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     <div className="Controls">
       <span className="transactionStatus nes-text">{status}</span>
       <div className="buttons">
+        {refreshButton}
         <button
           className={classNames({
             generateCritter: true,
