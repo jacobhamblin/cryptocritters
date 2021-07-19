@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import classNames from "classnames";
 import Web3 from "web3";
-import useInterval from "../utils/useInterval";
 import contractABIJSON from "../abi/CritterOwnershipUpdated.json";
 import "./style.css";
 
@@ -21,18 +20,23 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     }
   }, []);
 
+  const getCrittersByOwner = (accountID) =>
+    contract.methods.getCrittersByOwner(accountID).call();
+
   useEffect(() => {
-    if (!web3 || !contract) return;
-    setCritters(getCrittersByOwner(web3.eth.accounts[0]));
-  }, [contract, web3]);
+    if (!web3 || !contract || !accountID) return;
+
+    async function fetchCritters() {
+      setCritters(await getCrittersByOwner(accountID));
+    }
+
+    fetchCritters();
+  }, [contract, web3, accountID]);
 
   const setContract = (contract) => {
     setLocalContract(contract);
     setContractParent(contract);
   };
-
-  const getCrittersByOwner = (accountID) =>
-    contract.methods.getCrittersByOwner(accountID).call();
 
   const generateCritter = () => {
     setStatus("Creating a new Critter. This may take a bit.");
@@ -44,7 +48,7 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
       .createRandomCritter(name)
       .send({ from: accountID })
       .on("receipt", (receipt) => {
-        setStatus(`Successfully created ${name}!`);
+        setStatus(`Successfully created a Critter!`);
       });
   };
 
@@ -60,7 +64,8 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     console.log(accounts);
     setStatus("");
 
-    const web3 = new Web3(Web3.currentProvider);
+    // const web3 = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/55a04c54eef443b09b648831a53a67f8'));
+    const web3 = new Web3(window.ethereum);
     setWeb3(web3);
 
     const contract = new web3.eth.Contract(
@@ -70,7 +75,11 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
     setContract(contract);
   };
 
-  const accountText = accountID ? accountID : "Connect Metamask";
+  const newCritterButtonDisabled = !accountID || !contract;
+
+  const accountText = accountID
+    ? accountID.substring(0, 10) + "…"
+    : "Connect Metamask";
   return (
     <div className="Controls">
       <span className="transactionStatus nes-text">{status}</span>
@@ -79,10 +88,10 @@ const Controls = ({ setCritters, setContract: setContractParent }) => {
           className={classNames({
             generateCritter: true,
             "nes-btn": true,
-            "is-disabled": !accountID || !contract,
+            "is-disabled": newCritterButtonDisabled,
             "is-primary": accountID,
           })}
-          disabled={!accountID}
+          disabled={newCritterButtonDisabled}
           onClick={generateCritter}
         >
           Get New Critter
