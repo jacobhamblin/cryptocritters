@@ -1,1 +1,1 @@
-![cryptocritters_preview](https://user-images.githubusercontent.com/7588474/126223970-0b7688e6-d074-43f7-9cff-15cd6a5fe6de.png)
+![cryptocritters](https://user-images.githubusercontent.com/7588474/128103737-c485d08f-74fb-4ac4-8bbc-50478146fe04.gif)
